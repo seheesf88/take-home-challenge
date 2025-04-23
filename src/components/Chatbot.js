@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Button from "./Button";
 
 const Chatbot = () => {
 	const [open, setOpen] = useState(false);
@@ -54,10 +55,14 @@ const Chatbot = () => {
 			}}
 		>
 			<div style={styles.chatHeader}>
-				<div>Elapsed: {seconds}s</div>
-				<div>
-					<button onClick={handleReset}>Reset</button>
-					<button onClick={() => setOpen(false)}>Close</button>
+				<div>{seconds}s</div>
+				<div style={{ display: "flex", gap: 8 }}>
+					<Button onClick={handleReset} mode="outline">
+						Reset
+					</Button>
+					<Button onClick={() => setOpen(false)} mode="outline">
+						Close
+					</Button>
 				</div>
 			</div>
 
@@ -82,7 +87,9 @@ const Chatbot = () => {
 					onKeyDown={(e) => e.key === "Enter" && handleSend()}
 					style={styles.inputField}
 				/>
-				<button onClick={handleSend}>Send</button>
+				<Button onClick={handleSend} mode="contained">
+					Send
+				</Button>
 			</div>
 		</div>
 	);
