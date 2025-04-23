@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "./Button";
+import { isMobile } from "../utils";
 
 const Chatbot = () => {
 	const [open, setOpen] = useState(false);
@@ -50,8 +51,11 @@ const Chatbot = () => {
 		<div
 			style={{
 				...styles.chatWindow,
-				width: isMobile ? "100%" : 400,
-				height: isMobile ? "100%" : 600,
+				width: isMobile ? "100vw" : 400,
+				height: isMobile ? "100vh" : 600,
+				bottom: isMobile ? 0 : 20,
+				right: isMobile ? 0 : 20,
+				borderRadius: isMobile ? 0 : 12,
 			}}
 		>
 			<div style={styles.chatHeader}>
@@ -117,9 +121,13 @@ const styles = {
 	},
 	chatHeader: {
 		padding: 10,
-		borderBottom: "1px solid #ccc",
 		display: "flex",
 		justifyContent: "space-between",
+		alignItems: "center",
+		backgroundColor: "#007bff",
+		color: "#fff",
+		borderTopLeftRadius: 12,
+		borderTopRightRadius: 12,
 	},
 	chatBody: {
 		flex: 1,

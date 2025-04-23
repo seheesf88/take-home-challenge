@@ -28,7 +28,7 @@ const Sidebar = ({ currentPage, setCurrentPage }) => {
 						onClick={() => setCurrentPage(item.title)}
 						style={{
 							...styles.menuItem,
-							backgroundColor: selected ? "blue" : "transparent",
+							backgroundColor: selected ? "#007bff" : "transparent",
 						}}
 					>
 						{item.icon(selected)}
